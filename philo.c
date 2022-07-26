@@ -6,7 +6,7 @@
 /*   By: abigeddi <abigeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:07:08 by abigeddi          #+#    #+#             */
-/*   Updated: 2022/06/06 15:13:03 by abigeddi         ###   ########.fr       */
+/*   Updated: 2022/06/16 09:29:12 by abigeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	set_forks(t_philo *philo, int lamp)
 {
 	if (lamp)
 	{
-		pthread_mutex_lock(&philo->data->forks[philo->index - 1] % philo->data->n_philo);
-		philo_status()
+		pthread_mutex_lock(&philo->data->forks[(philo->index - 1) % philo->data->n_philo]);
+		philo_status(philo,"has taken a fork", 1);
+		pthread_mutex_lock(&philo->data->forks[(philo->index) % philo->data->n_philo]);
+		philo_status(philo,"has taken a fork", 1);
 	}
 }
 
@@ -39,10 +41,10 @@ void	*routine(void *av)
 		ft_usleep(philo->data->t_eat / 2);
 	while (1)
 	{
-		sets_fork(philo, 1);
+		set_forks(philo, 1);
 		philo_status(philo, "is eating", 1);
 		ft_usleep(philo->data->t_eat);
-		sets_fork(philo, 0);
+		set_forks(philo, 0);
 		philo->last_eat = get_time();
 		philo_status(philo, "is sleeping", 1);
 		ft_usleep(philo->data->t_sleep);
@@ -53,7 +55,7 @@ void	*routine(void *av)
 	}
 }
 
-void	init_philo(t_data *data)
+void	init_philosophes(t_data *data)
 {
 	int	i;
 	
@@ -62,6 +64,12 @@ void	init_philo(t_data *data)
 	while (i < data->n_philo)
 	{
 		pthread_create(&data->philos[i].th,NULL,routine,&data->philos[i].th);
+		i++;
+	}
+	i = 0;
+	while (i < data->n_philo)
+	{
+		pthread_detach(data->philos[i].th);
 		i++;
 	}
 }

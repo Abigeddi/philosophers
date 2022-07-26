@@ -6,7 +6,7 @@
 /*   By: abigeddi <abigeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:07:00 by abigeddi          #+#    #+#             */
-/*   Updated: 2022/06/06 14:58:35 by abigeddi         ###   ########.fr       */
+/*   Updated: 2022/06/07 10:35:46 by abigeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ long long	get_time(void);
 void	set_forks(t_philo *philo, int lamp);
 int	init_philo(t_data *data);
 int	ft_atoi ( const  char *str);
+void	init_philosophes(t_data *data);
 #endif

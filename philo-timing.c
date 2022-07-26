@@ -6,13 +6,12 @@
 /*   By: abigeddi <abigeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 12:42:29 by abigeddi          #+#    #+#             */
-/*   Updated: 2022/06/06 14:58:20 by abigeddi         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:36:19 by abigeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-#include "philo.h"
 
 long long	get_time(void)
 {

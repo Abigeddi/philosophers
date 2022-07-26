@@ -6,11 +6,13 @@
 /*   By: abigeddi <abigeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:17:56 by abigeddi          #+#    #+#             */
-/*   Updated: 2022/06/06 15:07:18 by abigeddi         ###   ########.fr       */
+/*   Updated: 2022/06/07 11:49:39 by abigeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+
 
 void	take_args(t_data *data, int ac, char **av)
 {
